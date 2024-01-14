@@ -48,7 +48,7 @@ USER appuser
 COPY . .
 
 # Expose the port that the application listens on.
-EXPOSE 8000
+EXPOSE 80
 
 # Run the application.
 CMD gunicorn '.venv.lib.python3.12.site-packages.fastapi.middleware.wsgi' --bind=0.0.0.0:80
