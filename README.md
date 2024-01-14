@@ -1,21 +1,60 @@
-# Project Title
+DevOps FastAPI Project
 
-This project serves as a base for testing DevOps projects. It provides a structured environment for you to develop, test, and deploy your applications.
+DevOps FastAPI Project
+======================
 
-## Getting Started
+Overview
+--------
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+This project is a foundational FastAPI application for experimenting with DevOps tools and practices. It's aimed at facilitating the integration of DevOps methodologies in a Python environment, serving as a learning and testing base for DevOps enthusiasts and professionals.
+
+Goals
+-----
+
+*   Establish a base for DevOps project testing.
+*   Integrate various DevOps tools and practices.
+*   Foster learning in DevOps within a Python setting.
+
+Getting Started
+---------------
 
 ### Prerequisites
 
-Ensure you have the following installed on your local machine:
-
-- Python
-- Virtualenv
+*   Python 3.x
+*   Docker (for containerization)
 
 ### Installation
 
-1. Clone the repo:
+Clone the repo:
 
-```bash
-git clone https://github.com/yourusername/your-repo-name.git
+    git clone https://github.com/maxiplux/api-python-project-devops-fast-api.git
+
+Install dependencies:
+
+    pip install -r requirements.txt
+
+### Running the App
+
+Locally:
+
+    uvicorn main:app --reload
+
+Using Docker:
+
+    docker build -t fastapi-devops .docker run -p 8000:8000 fastapi-devops
+
+Contributing
+------------
+
+Feel free to fork, modify, and send a pull request. Contributions are welcome!
+
+License
+-------
+
+[MIT License](LICENSE)
+
+Contact
+-------
+
+Your Name  
+maxiplux@gmail.com
