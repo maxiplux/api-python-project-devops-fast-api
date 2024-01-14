@@ -41,7 +41,10 @@ Locally:
 
 Using Docker:
 
-    docker build -t fastapi-devops .docker run -p 8000:8000 fastapi-devops
+    docker build -t fastapi-devops .
+    docker run -p 8000:8000 -e DB_USERNAME=your_username -e DB_PASSWORD=your_password -e DB_HOST=your_host -e DB_NAME=your_db_name fastapi-devops
+    
+
 
 Contributing
 ------------
