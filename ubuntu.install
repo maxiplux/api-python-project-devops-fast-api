@@ -19,4 +19,4 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plug
 git clone https://github.com/maxiplux/api-python-project-devops-fast-api.git
 cd api-python-project-devops-fast-api
 
-/home/ubuntu/.local/bin/uvicorn main:app --reload --host 0.0.0.0 --port 8000
+/home/ubuntu/.local/bin/uvicorn main:app --reload --host 0.0.0.0 --port 80
