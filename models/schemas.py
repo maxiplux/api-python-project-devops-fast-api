@@ -13,6 +13,5 @@ class ItemCreate(ItemBase):
 class Item(ItemBase):
     id: int
 
-
     class Config:
         orm_mode = True

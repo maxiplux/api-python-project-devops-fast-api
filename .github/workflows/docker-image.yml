@@ -13,12 +13,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Docker Login
-      run: docker login -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }}      
+      - uses: actions/checkout@v3
+      - name: Docker Login
+        run: docker login -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }}
 
 
-    - name: Docker Build
-      run: docker build . -t index.docker.io/maxiplux/fastapidevops
-    - name: Docker Push
-      run: docker push index.docker.io/maxiplux/fastapidevops
+      - name: Docker Build
+        run: docker build . -t index.docker.io/maxiplux/fastapidevops
+      - name: Docker Push
+        run: docker push index.docker.io/maxiplux/fastapidevops

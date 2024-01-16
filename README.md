@@ -6,22 +6,24 @@ DevOps FastAPI Project
 Overview
 --------
 
-This project is a foundational FastAPI application for experimenting with DevOps tools and practices. It's aimed at facilitating the integration of DevOps methodologies in a Python environment, serving as a learning and testing base for DevOps enthusiasts and professionals.
+This project is a foundational FastAPI application for experimenting with DevOps tools and practices. It's aimed at
+facilitating the integration of DevOps methodologies in a Python environment, serving as a learning and testing base for
+DevOps enthusiasts and professionals.
 
 Goals
 -----
 
-*   Establish a base for DevOps project testing.
-*   Integrate various DevOps tools and practices.
-*   Foster learning in DevOps within a Python setting.
+* Establish a base for DevOps project testing.
+* Integrate various DevOps tools and practices.
+* Foster learning in DevOps within a Python setting.
 
 Getting Started
 ---------------
 
 ### Prerequisites
 
-*   Python 3.x
-*   Docker (for containerization)
+* Python 3.x
+* Docker (for containerization)
 
 ### Installation
 
@@ -43,8 +45,6 @@ Using Docker:
 
     docker build -t fastapi-devops .
     docker run -p 8000:8000 -e DB_USERNAME=your_username -e DB_PASSWORD=your_password -e DB_HOST=your_host -e DB_NAME=your_db_name fastapi-devops
-    
-
 
 Contributing
 ------------
