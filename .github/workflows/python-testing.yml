@@ -16,7 +16,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    container: node:10.18-jessie
+    container: python:3.12
     # Service containers to run with `container-job`
     services:
       # Label used to access the service container
