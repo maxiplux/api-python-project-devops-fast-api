@@ -57,7 +57,9 @@ jobs:
         env:
           # The hostname used to communicate with the PostgreSQL service container
           DB_HOST: postgres
-          # The default PostgreSQL port
-          POSTGRES_PORT: 5432
+          DB_PORT: 5432
+          DB_NAME: postgres
+          DB_USER: postgres
+          DB_PASSWORD: postgres
       
       
