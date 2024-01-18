@@ -54,3 +54,10 @@ jobs:
       - name: Test with pytest
         run: |
           pytest
+        env:
+          # The hostname used to communicate with the PostgreSQL service container
+          DB_HOST: postgres
+          # The default PostgreSQL port
+          POSTGRES_PORT: 5432
+      
+      
