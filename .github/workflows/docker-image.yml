@@ -2,9 +2,9 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "main" ,"dev-auth" ]
+    branches: [  "dev-auth" ]
   pull_request:
-    branches: [ "main","dev-auth"  ]
+    branches: [  "dev-auth"  ]
 
 jobs:
 
@@ -19,6 +19,6 @@ jobs:
 
 
       - name: Docker Build
-        run: docker build . -t index.docker.io/maxiplux/fastapidevops
+        run: docker build . -t index.docker.io/maxiplux/fastapidevops-auth
       - name: Docker Push
-        run: docker push index.docker.io/maxiplux/fastapidevops
+        run: docker push index.docker.io/maxiplux/fastapidevops-auth
