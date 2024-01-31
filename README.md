@@ -43,7 +43,7 @@ After deployment, the web application will be accessible through the EC2 instanc
 
 This setup demonstrates a basic but comprehensive approach to deploying a multi-service web application on AWS using Docker Compose, managed and provisioned by Terraform. It illustrates the power of Infrastructure as Code (IaC) in automating and simplifying cloud infrastructure deployment and management.
 
-Please, remeber delete all the resources here using terraform destroy at the end.
+Please remeber delete all the resources here using terraform destroy at the end.
  
 
 
