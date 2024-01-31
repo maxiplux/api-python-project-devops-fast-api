@@ -1,54 +1,52 @@
-DevOps FastAPI Project
+Sure, here's your text formatted with Markdown:
 
-DevOps FastAPI Project
-======================
+markdown
+# Deploying a Web Application using Docker Compose on AWS
 
-Overview
---------
+This project leverages Terraform for infrastructure provisioning. The project architecture incorporates a multi-service application setup with a PostgreSQL database and a FastAPI application service, which are containerized and orchestrated using Docker Compose. Additionally, the Terraform script automates the AWS cloud infrastructure setup, including networking, security, and an EC2 instance configuration for hosting the Docker containers.
 
-This project is a foundational FastAPI application for experimenting with DevOps tools and practices. It's aimed at
-facilitating the integration of DevOps methodologies in a Python environment, serving as a learning and testing base for
-DevOps enthusiasts and professionals.
+## Prerequisites
 
-Goals
------
+- AWS Account & AWS CLI with admin credentials
+- Terraform installed
+- Docker and Docker Compose installed
+- Git (for version control and cloning repositories)
 
-* Establish a base for DevOps project testing.
-* Integrate various DevOps tools and practices.
-* Foster learning in DevOps within a Python setting.
+## Terraform Execution Guide
 
-Getting Started
----------------
+1. **Initialization**: Navigate to the Terraform script directory and run `terraform init` to initialize the Terraform workspace and download required providers.
+2. **Plan**: Execute `terraform plan` to review the infrastructure changes that will be applied.
+3. **Apply**: Deploy the infrastructure with `terraform apply`. Confirm the action when prompted to proceed with the deployment.
 
-### Prerequisites
+**Note**: The Terraform script generates an SSH key pair. The private key (`terraform-pem-ansible-dec04.pem`) is saved locally and should be used for SSH access to the EC2 instance.
 
-* Python 3.x
-* Docker (for containerization)
+## AWS Components Configuration
 
-### Installation
+- **VPC & Networking**: A custom VPC with an internet gateway, route table, and a public subnet to host the EC2 instance.
+- **Security Groups**: Configured to allow SSH, ICMP (ping), and HTTP access on port 8080.
+- **EC2 Instance**: Hosts the Docker containers, accessible via a public DNS.
 
-Clone the repo:
+## Docker Compose Overview
 
-    git clone https://github.com/maxiplux/api-python-project-devops-fast-api.git
+- **PostgreSQL Database (db)**: Uses the `postgres:15.0` image, pre-configured with user credentials. It's meant for development and requires security hardening for production.
+- **FastAPI Application (app)**: Built from `maxiplux/fastapidevops-auth:latest`, it serves as the web application backend.
 
-Install dependencies:
+## Accessing the Application
 
-    pip install -r requirements.txt
+After deployment, the web application will be accessible through the EC2 instance's public DNS on port 8080. Detailed instructions on accessing and testing the application are provided in the Terraform script outputs.
 
-### Running the App
+#Video about how to deploy this project, step by step:
+-- ** https://www.youtube.com/watch?v=03fnj4TSAwI
 
-Locally:
 
-    uvicorn main:app --reload
+## Conclusion
 
-Using Docker:
+This setup demonstrates a basic but comprehensive approach to deploying a multi-service web application on AWS using Docker Compose, managed and provisioned by Terraform. It illustrates the power of Infrastructure as Code (IaC) in automating and simplifying cloud infrastructure deployment and management.
 
-    docker build -t fastapi-devops .
-    docker run -p 8000:8000 -e DB_USERNAME=your_username -e DB_PASSWORD=your_password -e DB_HOST=your_host -e DB_NAME=your_db_name fastapi-devops
+Please, remeber delete all the resources here using terraform destroy at the end.
+ 
 
-#Video with the answer to project 4:
-## https://www.youtube.com/watch?v=03fnj4TSAwI
-    
+
 
 
 
@@ -63,8 +61,4 @@ License
 
 [MIT License](LICENSE)
 
-Contact
--------
 
-Your Name  
-maxiplux@gmail.com
