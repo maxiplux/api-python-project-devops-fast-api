@@ -17,8 +17,12 @@ jobs:
       - name: Docker Login
         run: docker login -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }}
 
+      - name: Docker Builder Buidx
+        run: docker buildx create --use --platform=linux/arm64,linux/amd64 --name multi-platform-builder
 
       - name: Docker Build
-        run: docker build . -t index.docker.io/maxiplux/fastapidevops-auth
+        run:  docker buildx build --platform linux/amd64,linux/arm64 . maxiplux/fastapidevops-auth:latest
       - name: Docker Push
         run: docker push index.docker.io/maxiplux/fastapidevops-auth
+
+

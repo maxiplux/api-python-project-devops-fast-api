@@ -10,10 +10,6 @@ FROM python:${PYTHON_VERSION}-slim as base
 # Prevents Python from writing pyc files.
 ENV PYTHONDONTWRITEBYTECODE=1
 # Set default environment variables
-ENV DB_USERNAME=postgres
-ENV DB_PASSWORD=postgres
-ENV DB_HOST=LOCALHOST
-ENV DB_NAME=postgres
 
 # Keeps Python from buffering stdout and stderr to avoid situations where
 # the application crashes without emitting any logs due to buffering.
@@ -51,5 +47,4 @@ COPY . .
 EXPOSE 80
 
 # Run the application.
-#CMD gunicorn '.venv.lib.python3.12.site-packages.fastapi.middleware.wsgi' --bind=0.0.0.0:80
-CMD uvicorn main:app --host 0.0.0.0 --port 80
+CMD uvicorn main:app --reload --host 0.0.0.0 --port 80  --reload --reload-dir /app
