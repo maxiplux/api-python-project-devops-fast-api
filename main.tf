@@ -183,13 +183,26 @@ resource "aws_instance" "terraform_instance_master" {
               #!/bin/bash
               sudo apt update -y
               sudo apt-get install ec2-instance-connect wget -y
+              sudo apt-get install ca-certificates curl -y
+              sudo apt-get update
               sudo apt-get install ca-certificates curl
               sudo install -m 0755 -d /etc/apt/keyrings
               sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
               sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+              # Add the repository to Apt sources:
+              echo \
+                "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+                $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+                sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+              sudo apt-get update
+
+
+
               sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin git -y
+              sudo service docker start
               wget https://raw.githubusercontent.com/maxiplux/api-python-project-devops-fast-api/dev-auth/docker-compose.yml
-              sudo docker-compose up -d
+              sudo docker compose up -d
 
 
 
@@ -210,7 +223,7 @@ output "server_private_ip" {
 }
 
 output "server_public_dns" {
-  value = [aws_instance.terraform_instance_master.public_dns]
+  value = "http://${aws_instance.terraform_instance_master.public_dns}:8080/docs"
 }
 
 output "server_public_ipv4" {

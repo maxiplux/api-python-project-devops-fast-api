@@ -25,7 +25,7 @@ services:
       - DB_HOST=db
       - DB_NAME=postgres
     ports:
-      - 127.0.0.1:8080:80
+      - 0.0.0.0:8080:80
 
 volumes:
   cache:

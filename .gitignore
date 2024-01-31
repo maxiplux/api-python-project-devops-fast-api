@@ -166,3 +166,9 @@ cython_debug/
 /report.html
 /.idea/
 /assets/
+/.terraform.lock.hcl
+/terraform.tfstate
+/terraform-pem-ansible-dec04.pem
+/.terraform/providers/registry.terraform.io/hashicorp/aws/4.67.0/darwin_arm64/terraform-provider-aws_v4.67.0_x5
+/.terraform/providers/registry.terraform.io/hashicorp/local/2.4.1/darwin_arm64/terraform-provider-local_v2.4.1_x5
+/.terraform/providers/registry.terraform.io/hashicorp/tls/4.0.5/darwin_arm64/terraform-provider-tls_v4.0.5_x5
