@@ -4,6 +4,10 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 4.0"
     }
+    null = {
+      source  = "hashicorp/null"
+      version = "3.2.2"
+    }
   }
 }
 
@@ -201,22 +205,26 @@ resource "aws_instance" "terraform_instance_master" {
 
               sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin git -y
               sudo service docker start
-              wget https://raw.githubusercontent.com/maxiplux/api-python-project-devops-fast-api/dev-auth/docker-compose.yml
-              sudo docker compose up -d
-
-
-
-
-
-
-
-
-
-
+              cd /tmp && wget https://raw.githubusercontent.com/maxiplux/api-python-project-devops-fast-api/dev-auth/docker-compose.yml
+              cd /tmp && sudo docker compose up -d
+              echo "echo found" > /tmp/STATUS
               EOF
 }
 
 
+resource "null_resource" "user_data_status_check" {
+
+  provisioner "local-exec" {
+    command = "bash check_status.sh \"http://${aws_instance.terraform_instance_master.public_dns}:8080/docs\""
+  }
+  triggers = {
+    #remove this once you test it out as it should run only once
+    always_run ="${timestamp()}"
+
+  }
+  depends_on = [aws_instance.terraform_instance_master]
+
+}
 
 output "server_private_ip" {
   value = [aws_instance.terraform_instance_master.private_ip]
