@@ -3,7 +3,6 @@ version: '3.8'
 services:
   db:
     image: postgres:15.0
-    platform: linux/amd64
     # volumes:
     #   - ~/volumes/jhipster/baseapi/postgresql/:/var/lib/postgresql/data/
     environment:
@@ -16,7 +15,6 @@ services:
       - 127.0.0.1:5432:5432
   app:
     image: maxiplux/fastapidevops-auth:latest
-    platform: linux/amd64
     container_name: app
     restart: on-failure
     depends_on:
