@@ -51,4 +51,5 @@ COPY . .
 EXPOSE 80
 
 # Run the application.
-CMD gunicorn '.venv.lib.python3.12.site-packages.fastapi.middleware.wsgi' --bind=0.0.0.0:80
+#CMD gunicorn '.venv.lib.python3.12.site-packages.fastapi.middleware.wsgi' --bind=0.0.0.0:80
+CMD uvicorn main:app --host 0.0.0.0 --port 80
