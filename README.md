@@ -35,8 +35,8 @@ This project leverages Terraform for infrastructure provisioning. The project ar
 
 After deployment, the web application will be accessible through the EC2 instance's public DNS on port 8080. Detailed instructions on accessing and testing the application are provided in the Terraform script outputs.
 
-#Video about how to deploy this project, step by step:
--- ** https://www.youtube.com/watch?v=03fnj4TSAwI
+## Video about how to deploy this project, step by step:
+- **Youtube: https://www.youtube.com/watch?v=03fnj4TSAwI
 
 
 ## Conclusion
