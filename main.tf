@@ -188,7 +188,8 @@ resource "aws_instance" "terraform_instance_master" {
               sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
               sudo chmod a+r /etc/apt/keyrings/docker.asc
               sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin git -y
-              git clone
+              wget https://raw.githubusercontent.com/maxiplux/api-python-project-devops-fast-api/dev-auth/docker-compose.yml
+              sudo docker-compose up -d
 
 
 
@@ -197,7 +198,8 @@ resource "aws_instance" "terraform_instance_master" {
 
 
 
-              sudo bash -c 'echo your very first web server > /var/www/html/index.html'
+
+
               EOF
 }
 
