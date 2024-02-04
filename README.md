@@ -53,6 +53,8 @@ Please remeber delete all the resources here using terraform destroy at the end.
 
 Contributing
 ------------
+Project 4 - Linux Servers on AWS / Group Members: Lara, Farius, Juan, Rakin
+
 
 Feel free to fork, modify, and send a pull request. Contributions are welcome!
 
