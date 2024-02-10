@@ -20,11 +20,9 @@ jobs:
       - name: Docker Builder Buidx
         run: docker buildx create --use --platform=linux/arm64,linux/amd64 --name multi-platform-builder
 
-      - name: Docker Build
+      - name: Docker Build & Push
         run:  docker buildx build --platform=linux/arm64,linux/amd64 --push --tag maxiplux/fastapidevops-auth:latest -f ./Dockerfile .
 
-      - name: Docker Push
-        run: docker push index.docker.io/maxiplux/fastapidevops-auth:latest
 
 
 
