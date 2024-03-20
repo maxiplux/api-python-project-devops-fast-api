@@ -6,13 +6,7 @@ pipeline {
         timestamps() // Append timestamps to each line
         timeout(time: 20, unit: 'MINUTES') // Set a timeout on the total execution time of the job
     }
-    agent {
-        dockerfile {
-            filename 'Dockerfile'
-            // Optionally, you can specify the build context if your Dockerfile is not in the root
-            // args '-v /tmp:/tmp' // Optional: docker run arguments
-        }
-    }
+
     stages {
         stage('Checkout') {
             steps {
