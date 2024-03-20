@@ -14,7 +14,8 @@ pipeline {
         stage('Setup') {
             steps {
                 script {
-                    sh 'pip3.11 install -r requirements.txt'
+                    sh 'python3 -m venv .venv && source .venv/bin/activate'
+                    sh 'pip install -r requirements.txt'
                 }
             }
         }
