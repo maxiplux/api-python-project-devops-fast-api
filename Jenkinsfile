@@ -8,7 +8,7 @@ pipeline {
     }
     agent {
         dockerfile {
-            filename 'Dockerfile.build'
+            filename 'Dockerfile'
             // Optionally, you can specify the build context if your Dockerfile is not in the root
             // args '-v /tmp:/tmp' // Optional: docker run arguments
         }
