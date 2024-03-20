@@ -17,7 +17,7 @@ pipeline {
                     
                     
                     
-                    sh 'pip install -r requirements.txt'
+                    sh 'python -m pip  install  -r requirements.txt'
                 }
             }
         }
@@ -25,7 +25,7 @@ pipeline {
         stage('Unit Testing') {
             steps {
                 script {
-                    sh 'python -m unittest discover -s tests/unit'
+                    sh 'python -m unittest discover -s tests'
                 }
             }
         }
