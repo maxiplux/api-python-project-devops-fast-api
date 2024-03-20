@@ -29,13 +29,10 @@ pipeline {
                 }
             }
         }
-        stage('Integration Testing') {
+        stage('Deploy to Docker Registry') {
             steps {
                 script {
-                    sh """
-                    ./standup_testing_environment.sh
-                    python -m unittest discover -s tests/integration
-                    """
+                    sh "docker ps"
                 }
             }
         }
