@@ -32,7 +32,7 @@ pipeline {
         stage('Deploy to Docker Registry') {
             steps {
                 script {
-                    sh "docker ps"
+                    sh "sudo docker ps"
                 }
             }
         }
