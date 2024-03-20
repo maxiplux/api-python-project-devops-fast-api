@@ -14,10 +14,10 @@ pipeline {
         stage('Setup') {
             steps {
                 script {
-                    bash 'rm -rf .venv'
-                    bash 'python3 -m venv .venv && source .venv/bin/activate'
-                    bash 'source .venv/bin/activate'
-                    bash 'pip install -r requirements.txt'
+                    sh 'rm -rf .venv'
+                    sh 'python3 -m venv .venv && source .venv/bin/activate'
+                    sh 'source .venv/bin/activate'
+                    sh 'pip install -r requirements.txt'
                 }
             }
         }
