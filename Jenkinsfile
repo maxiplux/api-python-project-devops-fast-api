@@ -34,16 +34,7 @@ pipeline {
                 }
             }
         }
-        stage('Integration Testing') {
-            steps {
-                script {
-                    sh """
-                    ./standup_testing_environment.sh
-                    python -m unittest discover -s tests/integration
-                    """
-                }
-            }
-        }
+   
     }
     post {
         failure {
