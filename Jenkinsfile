@@ -14,7 +14,7 @@ pipeline {
         stage('Setup') {
             steps {
                 script {
-                    sh 'pip install -r requirements.txt'
+                    sh 'pip3.11 install -r requirements.txt'
                 }
             }
         }
