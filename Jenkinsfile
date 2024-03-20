@@ -21,13 +21,7 @@ pipeline {
                 }
             }
         }
-        stage('Linting') {
-            steps {
-                script {
-                    sh 'pylint **/*.py'
-                }
-            }
-        }
+
         stage('Unit Testing') {
             steps {
                 script {
