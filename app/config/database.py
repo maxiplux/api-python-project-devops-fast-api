@@ -7,17 +7,17 @@ from sqlalchemy.orm import sessionmaker
 
 # SQLALCHEMY_DATABASE_URL = "sqlite:///./sql_app2.db"
 
+SQLALCHEMY_DATABASE_URL = "sqlite:///./sql_app.db"
+# SQLALCHEMY_DATABASE_URL = "postgresql://user:password@postgresserver/db"
 
-url = URL.create(
-    drivername="postgresql",
-    username=os.environ.get('DB_USERNAME', 'postgres'),
-    password=os.environ.get('DB_PASSWORD', 'postgres'),
-    host=os.environ.get('DB_HOST', 'LOCALHOST'),
-    database=os.environ.get('DB_NAME', 'postgres'),
-    port=5432
+engine = create_engine(
+    SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
 )
 
-engine = create_engine(url)
+
+
+
+#engine = create_engine(url)
 Session = sessionmaker(bind=engine)
 session = Session()
 
