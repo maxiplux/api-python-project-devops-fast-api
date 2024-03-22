@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weclouddata
+  namespace: weclouddata
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: weclouddata
+  template:
+    metadata:
+      labels:
+        app: weclouddata
+    spec:
+      containers:
+      - name: python-app
+        
+        image: maxiplux/fastapidevops-auth:sqllite
+        securityContext:
+          allowPrivilegeEscalation: false
+          runAsUser: 0
+        ports:
+        - containerPort: 80
