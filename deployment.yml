@@ -16,7 +16,7 @@ spec:
       containers:
       - name: python-app
         
-        image: maxiplux/fastapidevops-auth:sqllite
+        image: maxiplux/fastapidevops-auth-sqlite:TAG_HERE
         securityContext:
           allowPrivilegeEscalation: false
           runAsUser: 0
