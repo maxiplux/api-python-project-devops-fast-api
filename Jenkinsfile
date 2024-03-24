@@ -56,7 +56,7 @@ pipeline {
             }
         }
 
-                stage('Deploy to Docker Registry') {
+                stage('Deploy to K8S') {
             steps {
                 script {
                     def commitId = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
