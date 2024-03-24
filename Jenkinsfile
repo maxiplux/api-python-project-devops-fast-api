@@ -55,6 +55,22 @@ pipeline {
                 }
             }
         }
+
+                stage('Deploy to Docker Registry') {
+            steps {
+                script {
+                    def commitId = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
+
+                    // Build the Docker image with the commit ID as a build argument
+                    sh "sed -i 's/TAG_HERE/\\{commitId}/g' deployment.yml"
+                    sh "cat deployment.yml"
+                    
+                    
+                 
+                  
+                }
+            }
+        }
     }
     post {
         failure {
