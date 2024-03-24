@@ -51,7 +51,7 @@ pipeline {
                     // Build the Docker image with the commit ID as a build argument
                     sh "#docker buildx build --platform=linux/amd64 --push --tag maxiplux/fastapidevops-auth-sqlite:${commitId} -f ./Dockerfile ."
                  
-                    sh "docker ps"
+                  
                 }
             }
         }
