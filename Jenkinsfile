@@ -36,9 +36,9 @@ pipeline {
 
                     // Build the Docker image with the commit ID as a build argument
                     
-                     sh ("Doing Login")
+                 
                     sh "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
-                    sh ("Login OK")
+                   
                 }
             }
         }
