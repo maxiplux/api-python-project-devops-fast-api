@@ -29,9 +29,28 @@ pipeline {
                 }
             }
         }
+        stage('Docker Login') {
+            steps {
+                script {
+                    
+
+                    // Build the Docker image with the commit ID as a build argument
+                    
+                     sh ("Doing Login")
+                    sh "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
+                    sh ("Login OK")
+                }
+            }
+        }
+
         stage('Deploy to Docker Registry') {
             steps {
                 script {
+                    def commitId = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
+
+                    // Build the Docker image with the commit ID as a build argument
+                    sh "#docker buildx build --platform=linux/amd64 --push --tag maxiplux/jenkins:${commitId} -f ./Dockerfile ."
+                 
                     sh "docker ps"
                 }
             }
