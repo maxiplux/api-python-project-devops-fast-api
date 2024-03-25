@@ -17,7 +17,7 @@ app.add_middleware(
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "Hello World March 24 11:03PM EST"}
 
 
 app.include_router(items.router)
