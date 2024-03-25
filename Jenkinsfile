@@ -63,7 +63,7 @@ pipeline {
 
                     // Build the Docker image with the commit ID as a build argument
                     sh "sed -i 's/TAG_HERE/"+commitId+"/g' deployment.yml"
-                    sh "cat deployment.yml"
+                    sh "kubectl apply -f deployment.yml -n weclouddata"
                     
                     
                  
